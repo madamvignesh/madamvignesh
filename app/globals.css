@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-purple-heart-50: #faf5ff;
+  --color-purple-heart-100: #f4e9fe;
+  --color-purple-heart-200: #ead7fd;
+  --color-purple-heart-300: #dab7fb;
+  --color-purple-heart-400: #c38af6;
+  --color-purple-heart-500: #ad5def;
+  --color-purple-heart-600: #983be2;
+  --color-purple-heart-700: #822ac6;
+  --color-purple-heart-800: #762aad;
+  --color-purple-heart-900: #5a2182;
+  --color-purple-heart-950: #3d0b60;
+
+
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-color-100: var(--color-purple-heart-100);
+  --color-color-101: var(--color-purple-heart-200);
+  --color-color-102: var(--color-purple-heart-300);
+  --color-color-103: var(--color-purple-heart-400);
+  --color-color-104: var(--color-purple-heart-500);
+  --color-color-105: var(--color-purple-heart-600);
+  --color-color-106: var(--color-purple-heart-700);
+  --color-color-107: var(--color-purple-heart-800);
+  --color-color-108: var(--color-purple-heart-900);
+  --color-color-109: var(--color-purple-heart-950);
+
+}
+
+.heading-name-left {
+  animation: entry-left-fade 1s ease-in-out 0s 1 normal forwards;
+}
+.heading-name-right {
+  animation: entry-right-fade 1s ease-in-out 0s 1 normal forwards;
+}
+
+.heading-image{
+  width: 150px;
+  height: 150px;
+  animation: scale-in 1s ease-in-out 0s 1 normal forwards;
+}
+
+.heading-description {
+  animation: step-fade 1s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes entry-left-fade {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes entry-right-fade {
+  0% {
+    transform: translate(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes step-fade {
+  0% {
+    transform: translateY(200);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
