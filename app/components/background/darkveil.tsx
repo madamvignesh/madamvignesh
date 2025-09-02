@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec2 } from 'ogl';
 
 const vertex = `
@@ -155,4 +155,11 @@ export default function DarkVeil({
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
   return <canvas ref={ref} className="w-full h-full block" />;
+}
+
+export function SafeClientComponent(props: any) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return <DarkVeil {...props} />;
 }

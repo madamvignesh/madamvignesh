@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import DarkVeil from "./components/background/darkveil";
+import Plasma from "./components/background/pasma";
 import Navbar from "./navbar";
 
 const geistSans = Geist({
@@ -26,16 +26,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Plasma background */}
+        <div className="fixed inset-0 -z-10 bg-black">
+          <Plasma
+            color="#822ac6"
+            speed={0.6}
+            direction="forward"
+            scale={1.1}
+            opacity={0.8}
+            mouseInteractive={true}
+          />
+        </div>
+
+        {/* Navbar */}
         <div className="fixed inset-0 z-10">
           <Navbar />
         </div>
-        <div style={{ width: '100%', height: '100vh', position: 'absolute' }}>
-          <DarkVeil />
-        </div>
-        {children}
+
+        {/* Page content */}
+        <main className="relative z-0">
+          {children}
+        </main>
       </body>
     </html>
   );

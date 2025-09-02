@@ -1,5 +1,15 @@
+'use client'
+
+import { useEffect, useState } from 'react';
 import CardNav from './components/elements/cardnav';
 import logo from '../public/logo.png'
+
+export function SafeClientComponent(props) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return <Navbar {...props} />;
+}
 
 const Navbar = () => {
   const items = [
@@ -35,7 +45,7 @@ const Navbar = () => {
 
   return (
     <CardNav
-      logo={logo}
+      logo="../public/logo.png"
       logoAlt="Company Logo"
       items={items}
       baseColor="#ead7fd"
